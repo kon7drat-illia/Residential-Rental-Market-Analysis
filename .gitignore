@@ -1,0 +1,120 @@
+# Python
+*.py[cod]
+*$py.class
+*.so
+__pycache__/
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Data files
+*.csv
+*.xlsx
+*.xls
+*.json
+*.xml
+*.sqlite
+*.db
+data/
+datasets/
+raw_data/
+parsed_data/
+output/
+exports/
+
+# Logs
+*.log
+logs/
+selenium.log
+geckodriver.log
+chromedriver.log
+
+# Scraped content
+downloads/
+screenshots/
+*.html
+*.htm
+scraped/
+cache/
+
+# Browser drivers (якщо не використовуєш webdriver-manager)
+chromedriver
+geckodriver
+msedgedriver
+*.exe
+
+# Plots and visualizations
+plots/
+figures/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.pdf
+
+# Configuration files with sensitive data
+config.ini
+secrets.json
+credentials.json
+.env.local
+settings.py
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.bak
+*.swp
+
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Selenium specific
+selenium-screenshot-*.png
+browser_logs/
+
+# Pandas profiling reports
+*_profile.html
+
+# Large model files
+*.pkl
+*.pickle
+*.h5
+*.model
+
+# Cookies and session data
+cookies.txt
+session_data/
+
+data/raw/*
+data/processed/*

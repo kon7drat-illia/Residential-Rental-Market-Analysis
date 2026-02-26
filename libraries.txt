@@ -1,0 +1,9 @@
+    Завантажені бібліотеки:
+selenium 
+webdriver-manager
+requests 
+beautifulsoup4
+pandas 
+numpy 
+matplotlib 
+seaborn

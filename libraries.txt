@@ -7,3 +7,8 @@ pandas
 numpy 
 matplotlib 
 seaborn
+cloudscraper
+undetected_chromedriver
+lxml
+
+Для коректної роботи undetected_chromedriver довелося встановити пакет setuptools

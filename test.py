@@ -11,7 +11,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import lxml
 
-base_url = "https://dom.ria.com/uk/arenda-kvartir/?page=1"
+base_url = "https://dom.ria.com/uk/arenda-kvartir/?page={page}"
+max_pages = 50
 
 def get_listing_urls(base_url):
     """ 
@@ -77,36 +78,61 @@ def get_info(driver, url):
         "description": safe_find("div.boxed.descriptionBlock"),
         "created_at": safe_find("ul.realty-info li"),
         "facilities_list": safe_find_all("div.comfort-list-grid span.comfort-list-text"),
-        "technically_tested": safe_find_all("div.inspected-box div")
+        "technically_tested": safe_find_all("div.inspected-box div"),
+        "seller_name": safe_find_all("div.sellerBox div.ml-10"),
+        "seller_trust": safe_find("div.sellerBox div.ml-30")
     }
     
 def main():
 #   Збираємо посилання з сторінки
-    urls = get_listing_urls(base_url)
-    if not urls:
-        print("Посилання не знайдено — перевір селектор у get_listing_urls()")
-        return
+    
     
 #   Запускаємо браузер і збираємо дані з кожної сторінки 
-    driver = uc.Chrome(version_main=144, headless=False)
+    driver = uc.Chrome(version_main=145, headless=False)
     results = []
+    current_page = 1
 
-    for i, url in enumerate(urls):
-        print(f"[{i+1}/{len(urls)}] {url}")
-        info = get_info(driver, url)
-        info['url'] = url
-        print(f"  Ціна: {info['price_UAH']}")
-        print(f"  Заголовок: {info['title']}")
-        results.append(info)
-        time.sleep(random.uniform(3, 5))
+    try:
+        for page in range(1, max_pages + 1):
+            current_page = page
+            page_url = base_url.format(page=page)
+            print(f"\n=== Сторінка {page} ===")
 
-    driver.quit()
+            urls = get_listing_urls(page_url)
+            if not urls:
+                print("Сторінка {page} порожня")
+                break
 
-#   Зберігаємо зібрані дані в .csv
-    df = pd.DataFrame(results)
-    df.to_csv("data/raw/result_2.csv", index=False, encoding="utf-8-sig")
-    print(f"\nГотово! Збережено {len(df)} записів у results.csv")
-    print(df)
+            for i, url in enumerate(urls):
+                print(f"Сторінка: {page} ")
+                print(f"[{i+1}/{len(urls)}] {url}")
+                info = get_info(driver, url)
+                info['url'] = url
+                info['page'] = page
+                print(f"  Ціна: {info['price_UAH']}")
+                print(f"  Заголовок: {info['title']}")
+                results.append(info)
+                time.sleep(random.uniform(3, 5))
+
+            time.sleep(random.uniform(2,4))
+            
+    except KeyboardInterrupt:
+        print(f"\nЗупинено вручну на сторінці {current_page}")
+
+    except Exception as e:
+        print(f"\nПомилка на сторінці: {current_page}: {e}")
+
+    finally:
+        driver.quit()
+
+    #   Зберігаємо зібрані дані в .csv
+        if results:
+            df = pd.DataFrame(results)
+            df.to_csv("data/raw/result_final_1000.csv", index=False, encoding="utf-8-sig")
+            print(f"\nГотово! Збережено {len(df)} записів у results.csv")
+            print(df)
+        else:
+            print("Даних немає - нічого зберігати")
 
 if __name__ == "__main__":
     main()

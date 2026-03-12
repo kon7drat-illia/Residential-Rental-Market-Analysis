@@ -50,7 +50,32 @@ def get_info(driver, url):
             return driver.find_element(By.CSS_SELECTOR, selector).text.strip()
         except:
             return "не знайдено"
-        
+    
+    def safe_find_city(selector, by=By.CSS_SELECTOR):
+        try:
+            return driver.find_element(by, selector).text.strip()
+        except:
+            return "не знайдено"
+
+    def get_full_description(selector):
+        try:
+            elements = driver.find_elements(By.CSS_SELECTOR, selector)
+
+            texts =[]
+            for el in elements:
+                raw_text = el.get_attribute("textContent")
+                clean_text  = " ".join(raw_text.split())
+
+                if clean_text:
+                    texts.append(clean_text)
+
+            if texts:
+                return "| ".join(texts)
+            else:
+                return "не знайдено"
+        except:
+            return "не знайдено"
+
     def safe_find_all(selector):
     #   Дістає всю інформацію в указаному тегу
         try:
@@ -80,7 +105,9 @@ def get_info(driver, url):
         "facilities_list": safe_find_all("div.comfort-list-grid span.comfort-list-text"),
         "technically_tested": safe_find_all("div.inspected-box div"),
         "seller_name": safe_find_all("div.sellerBox div.ml-10"),
-        "seller_trust": safe_find("div.sellerBox div.ml-30")
+        "seller_trust": safe_find("div.sellerBox div.ml-30"),
+        "city": safe_find_city("//ul[contains(@class, 'realty-info')]/preceding-sibling::span[1]", By.XPATH),
+        "plus_text": get_full_description("#additionalInfo li")
     }
     
 def main():
@@ -128,7 +155,7 @@ def main():
     #   Зберігаємо зібрані дані в .csv
         if results:
             df = pd.DataFrame(results)
-            df.to_csv("data/raw/result_final_1000.csv", index=False, encoding="utf-8-sig")
+            df.to_csv("data/raw/result_test_10.csv", index=False, encoding="utf-8-sig")
             print(f"\nГотово! Збережено {len(df)} записів у results.csv")
             print(df)
         else:

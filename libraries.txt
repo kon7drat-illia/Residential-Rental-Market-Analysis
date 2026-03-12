@@ -10,5 +10,6 @@ seaborn
 cloudscraper
 undetected_chromedriver
 lxml
+re
 
 Для коректної роботи undetected_chromedriver довелося встановити пакет setuptools

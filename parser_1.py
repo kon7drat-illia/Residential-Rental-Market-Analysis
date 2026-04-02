@@ -155,7 +155,7 @@ def main():
     #   Зберігаємо зібрані дані в .csv
         if results:
             df = pd.DataFrame(results)
-            df.to_csv("data/raw/result_test_13000.csv", index=False, encoding="utf-8-sig")
+            df.to_csv("data/raw/result_test_1.csv", index=False, encoding="utf-8-sig")
             print(f"\nГотово! Збережено {len(df)} записів у results.csv")
             print(df)
         else:

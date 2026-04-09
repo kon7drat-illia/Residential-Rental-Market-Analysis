@@ -67,7 +67,6 @@ msedgedriver
 # Plots and visualizations
 plots/
 figures/
-*.png
 *.jpg
 *.jpeg
 *.gif

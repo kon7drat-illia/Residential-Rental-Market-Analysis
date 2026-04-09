@@ -65,7 +65,6 @@ msedgedriver
 *.exe
 
 # Plots and visualizations
-plots/
 figures/
 *.jpg
 *.jpeg

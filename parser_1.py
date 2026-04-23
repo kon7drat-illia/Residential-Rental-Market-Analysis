@@ -115,7 +115,7 @@ def main():
     
     
 #   Запускаємо браузер і збираємо дані з кожної сторінки 
-    driver = uc.Chrome(version_main=145, headless=False)
+    driver = uc.Chrome(headless=False)
     results = []
     current_page = 1
 

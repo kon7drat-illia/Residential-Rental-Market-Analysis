@@ -4,14 +4,14 @@
 
  💡 **Клікніть на зображення, щоб відкрити інтерактивний дашборд.**
 
-[<img src="data\output\1.png" width="100%">](https://app.powerbi.com/view?r=eyJrIjoiODlmMGU0ZDItNmY1Mi00ZTg0LTkzMDAtODA0NDk2NzBjNWJmIiwidCI6ImIzZTY4ODgwLTM0OTAtNDZlNi1iMjk1LWEzNmU0YmUyMDcyOCIsImMiOjl9)
+[<img src="data/output/1.png" width="100%">](https://app.powerbi.com/view?r=eyJrIjoiODlmMGU0ZDItNmY1Mi00ZTg0LTkzMDAtODA0NDk2NzBjNWJmIiwidCI6ImIzZTY4ODgwLTM0OTAtNDZlNi1iMjk1LWEzNmU0YmUyMDcyOCIsImMiOjl9)
 
 ### 📌 Загальний огляд ринку
 
 Ця сторінка формує базове розуміння структури пропозиції на основі **5 646 валідованих оголошень** (дані за 01.12.2025 – 27.03.2026).
 
 ---
-[<img src="data\output\2.png" width="100%">](https://app.powerbi.com/view?r=eyJrIjoiODlmMGU0ZDItNmY1Mi00ZTg0LTkzMDAtODA0NDk2NzBjNWJmIiwidCI6ImIzZTY4ODgwLTM0OTAtNDZlNi1iMjk1LWEzNmU0YmUyMDcyOCIsImMiOjl9)
+[<img src="data/output/2.png" width="100%">](https://app.powerbi.com/view?r=eyJrIjoiODlmMGU0ZDItNmY1Mi00ZTg0LTkzMDAtODA0NDk2NzBjNWJmIiwidCI6ImIzZTY4ODgwLTM0OTAtNDZlNi1iMjk1LWEzNmU0YmUyMDcyOCIsImMiOjl9)
 
 ### 📌 Огляд базових факторів ціни
 
@@ -26,7 +26,7 @@
 * 📊 **Структура ринку:** Абсолютна більшість пропозицій (87%) зосереджена в сегменті 1- та 2-кімнатних квартир.
 
 ---
-[<img src="data\output\3.png" width="100%">](https://app.powerbi.com/view?r=eyJrIjoiODlmMGU0ZDItNmY1Mi00ZTg0LTkzMDAtODA0NDk2NzBjNWJmIiwidCI6ImIzZTY4ODgwLTM0OTAtNDZlNi1iMjk1LWEzNmU0YmUyMDcyOCIsImMiOjl9)
+[<img src="data/output/3.png" width="100%">](https://app.powerbi.com/view?r=eyJrIjoiODlmMGU0ZDItNmY1Mi00ZTg0LTkzMDAtODA0NDk2NzBjNWJmIiwidCI6ImIzZTY4ODgwLTM0OTAtNDZlNi1iMjk1LWEzNmU0YmUyMDcyOCIsImMiOjl9)
 
 ### 📌 Огляд сучасних факторів ціни
 

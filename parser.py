@@ -7,8 +7,6 @@ import time
 import random
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 import lxml
 
 base_url = "https://dom.ria.com/uk/arenda-kvartir/?page={page}"
@@ -111,11 +109,8 @@ def get_info(driver, url):
     }
     
 def main():
-#   Збираємо посилання з сторінки
-    
-    
 #   Запускаємо браузер і збираємо дані з кожної сторінки 
-    driver = uc.Chrome(headless=False)
+    driver = uc.Chrome(headless=False, version_main=147)
     results = []
     current_page = 1
 
@@ -127,7 +122,7 @@ def main():
 
             urls = get_listing_urls(page_url)
             if not urls:
-                print("Сторінка {page} порожня")
+                print(f"Сторінка {page} порожня")
                 break
 
             for i, url in enumerate(urls):
@@ -155,7 +150,7 @@ def main():
     #   Зберігаємо зібрані дані в .csv
         if results:
             df = pd.DataFrame(results)
-            df.to_csv("data/raw/result_test_1.csv", index=False, encoding="utf-8-sig")
+            df.to_csv("data/raw/result_test_2.csv", index=False, encoding="utf-8-sig")
             print(f"\nГотово! Збережено {len(df)} записів у results.csv")
             print(df)
         else:
